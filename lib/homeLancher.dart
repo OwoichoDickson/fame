@@ -8,7 +8,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      //backgroundColor: Colors.white,
       drawer: Drawer(
         child: ListView(
           padding: EdgeInsets.zero,
@@ -41,6 +41,7 @@ class HomePage extends StatelessWidget {
         ),
       ),
       appBar: AppBar(
+
         leading: Builder(
           builder: (BuildContext context) {
             return IconButton(
@@ -53,12 +54,13 @@ class HomePage extends StatelessWidget {
         elevation: 0,
         title: const Text('Dashboard',
 
+
         style: TextStyle(color:Colors.black ),
       ),
         centerTitle:true,
-      backgroundColor: Colors.white,),
+      backgroundColor: Colors.indigo,),
       bottomNavigationBar: CurvedNavigationBar(
-        backgroundColor: Colors.blueAccent,
+        backgroundColor: Colors.indigo ,
         items: <Widget> [
           Icon(Icons.add, size: 30),
           Icon(Icons.list, size: 30),
@@ -71,34 +73,59 @@ class HomePage extends StatelessWidget {
         },
       ),
       body:  Container(
+       // color: Colors.red,
 
           child: Column(
             children: [
-              Padding(
-                padding: const EdgeInsets.all(15.0),
-                child: Container(child: Text("Justgetvisible.com",
+              Container(
+                child: Container(
+
+                  alignment: Alignment.topLeft,
+                  color: Colors.blue,
+                  padding:EdgeInsets.fromLTRB(10, 4, 10, 5),
+                  child: Text("Justgetvisible.com",
+
                   style:TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 30,
-                  ) ,)),
+                  fontWeight: FontWeight.bold,
+                  fontSize: 30,
+                  ) ,),
+                ),
               ),
-              SafeArea(child: Column(
-                children: [
-                  Row(
+              Center(
+                child: Row(children: [
+                Card(
+                child: Column(
+                mainAxisSize: MainAxisSize.min,
+                  children: <Widget>[
+                    const ListTile(
+                      leading: Icon(Icons.album),
+                      title: Text('The Enchanted Nightingale'),
+                      subtitle: Text('Music by Julie Gable. Lyrics by Sidney Stein.'),
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: <Widget>[
+                        TextButton(
+                          child: const Text('BUY TICKETS'),
+                          onPressed: () {/* ... */},
+                        ),
+                        const SizedBox(width: 8),
+                        TextButton(
+                          child: const Text('LISTEN'),
+                          onPressed: () {/* ... */},
+                        ),
+                        const SizedBox(width: 8),
+                      ],
+                    ),
+                  ],
+                ),
+                ),
+                ]
+              ),
+              )
 
-                    children: [
-                      Container(
-                        color: Colors.black,
-                      ),
-                      Card(
-                        color: Colors.black,
-                      ),
-                      Card(),
-                    ],
 
-                  )
-                ],
-              ))
+
             ],
 
           )),
